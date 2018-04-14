@@ -1,0 +1,57 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "extends": "airbnb",
+    "parserOptions": {
+        "ecmaFeatures": {
+          "experimentalObjectRestSpread": true,
+          "jsx": true
+        },
+        "sourceType": "module"
+      },
+    "rules": {
+      "max-len": [
+        1,
+        120,
+        2,
+        {
+          "ignoreComments": true
+        }
+      ],
+      "quote-props": [
+        1,
+        "consistent-as-needed"
+      ],
+      "no-cond-assign": [
+        2,
+        "except-parens"
+      ],
+      "radix": 0,
+      "space-infix-ops": 0,
+      "no-unused-vars": [
+        1,
+        {
+          "vars": "local",
+          "args": "none"
+        }
+      ],
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "parent",
+            "sibling",
+            "index"
+          ]
+        }
+      ]
+    }
+  }
