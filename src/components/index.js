@@ -1,3 +1,7 @@
 import Image from './atoms';
+import ImageSet from './molecules';
 
-export default Image;
+export {
+  Image,
+  ImageSet,
+};

@@ -43,6 +43,7 @@
           "args": "none"
         }
       ],
+      "react/jsx-filename-extension": 0,
       "import/no-unresolved": "off",
       "import/extensions": "off",
       "import/order": [
