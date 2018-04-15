@@ -4,16 +4,24 @@ import Default from './Image.styles';
 
 const Image = (props) => {
   const {
+    description,
     url,
   } = props;
-
   return (
-    <Default src={url} />
+    <Default
+      alt={description}
+      src={url}
+    />
   );
 };
 
 Image.propTypes = {
+  description: PropTypes.string,
   url: PropTypes.string.isRequired,
+};
+
+Image.defaultProps = {
+  description: '',
 };
 
 export default Image;

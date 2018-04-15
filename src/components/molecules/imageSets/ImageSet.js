@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
-import Image from '../../atoms';
+import { Image } from '../../';
 
 const ImageSet = (props) => {
   const {
@@ -14,7 +14,7 @@ const ImageSet = (props) => {
           key={v4()}
           url={image}
         />
-    ))}
+        ))}
     </div>
   );
 };
