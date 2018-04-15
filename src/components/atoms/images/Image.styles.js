@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Default = styled.img`
-    width: 100%;
+    margin: 20px;
 `;
 
 export default Default;

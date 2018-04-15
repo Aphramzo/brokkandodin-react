@@ -2,20 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import { Image } from '../../';
+import Container from './ImageSet.styles.js';
 
 const ImageSet = (props) => {
   const {
     images,
   } = props;
   return (
-    <div>
+    <Container>
       {images.map(image => (
         <Image
           key={v4()}
           url={image}
         />
         ))}
-    </div>
+    </Container>
   );
 };
 
