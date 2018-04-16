@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ImageSet } from '../../';
 import GetLatest from '../../../api/photos/Flickr';
+import RecentPhotosContainer from './RecentPhotos.styles';
 
 class RecentPhotos extends Component {
   constructor(props) {
@@ -18,13 +19,15 @@ class RecentPhotos extends Component {
 
   setImages(images) {
     this.setState({
-      images: images.map(photo => (photo.urlSmall)),
+      images,
     });
   }
 
   render() {
     return (
-      <ImageSet images={this.state.images} />
+      <RecentPhotosContainer>
+        <ImageSet images={this.state.images} />
+      </RecentPhotosContainer>
     );
   }
 }

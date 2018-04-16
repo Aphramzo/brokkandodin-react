@@ -1,3 +1,9 @@
+import ImageCard from './imageCards';
+import ImageInfo from './imageInfos';
 import ImageSet from './imageSets';
 
-export default ImageSet;
+export {
+  ImageCard,
+  ImageInfo,
+  ImageSet,
+};

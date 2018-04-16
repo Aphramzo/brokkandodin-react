@@ -1,9 +1,15 @@
 import Image from './atoms';
-import ImageSet from './molecules';
+import {
+  ImageCard,
+  ImageInfo,
+  ImageSet,
+} from './molecules';
 import RecentPhotos from './organisms';
 
 export {
   Image,
+  ImageCard,
+  ImageInfo,
   ImageSet,
   RecentPhotos,
 };
