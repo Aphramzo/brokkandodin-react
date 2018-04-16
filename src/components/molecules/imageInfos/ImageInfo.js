@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Description from './ImageInfo.styles';
+import moment from 'moment';
+import {
+  DateTaken,
+  Description,
+} from './ImageInfo.styles';
 
 const ImageInfo = (props) => {
   const {
@@ -9,8 +13,13 @@ const ImageInfo = (props) => {
     tags,
   } = props;
 
+  const dateDisplay = moment(dateTaken, 'YYYY-MM-D').format('dddd, MMMM Do YYYY');
+
   return (
     <Description>
+      <DateTaken>
+        {dateDisplay}
+      </DateTaken>
       {description}
     </Description>
   );

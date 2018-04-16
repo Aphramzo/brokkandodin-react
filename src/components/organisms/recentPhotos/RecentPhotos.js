@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BottomScrollListener from 'react-bottom-scroll-listener';
 import { ImageSet } from '../../';
 import GetLatest from '../../../api/photos/Flickr';
 import RecentPhotosContainer from './RecentPhotos.styles';
@@ -9,25 +10,35 @@ class RecentPhotos extends Component {
 
     this.state = {
       images: [],
+      pageNumber: 1,
     };
+
+    this.loadMore = this.loadMore.bind(this);
   }
 
-  async componentDidMount() {
-    const photos = await GetLatest(0);
-    this.setImages(photos);
+  componentDidMount() {
+    this.loadMore();
   }
 
   setImages(images) {
     this.setState({
-      images,
+      images: [...this.state.images, ...images],
+      pageNumber: this.state.pageNumber + 1,
     });
+  }
+
+  async loadMore() {
+    const photos = await GetLatest(this.state.pageNumber);
+    this.setImages(photos);
   }
 
   render() {
     return (
-      <RecentPhotosContainer>
-        <ImageSet images={this.state.images} />
-      </RecentPhotosContainer>
+      <BottomScrollListener onBottom={this.loadMore}>
+        <RecentPhotosContainer>
+          <ImageSet images={this.state.images} />
+        </RecentPhotosContainer>
+      </BottomScrollListener>
     );
   }
 }
