@@ -9,6 +9,7 @@ import Card from './ImageCard.styles.js';
 const ImageCard = (props) => {
   const {
     image,
+    onTagClick,
   } = props;
   return (
     <Card imageWidth={image.smallWidth}>
@@ -16,6 +17,7 @@ const ImageCard = (props) => {
       <ImageInfo
         dateTaken={image.date}
         description={image.description}
+        onTagClick={onTagClick}
         tags={image.tags}
       />
     </Card>
@@ -24,6 +26,11 @@ const ImageCard = (props) => {
 
 ImageCard.propTypes = {
   image: PropTypes.shape.isRequired,
+  onTagClick: PropTypes.func,
+};
+
+ImageCard.defaultProps = {
+  onTagClick: () => {},
 };
 
 export default ImageCard;

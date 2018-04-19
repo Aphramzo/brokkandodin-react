@@ -8,6 +8,7 @@ import { ImageCard } from '../../';
 const ImageSet = (props) => {
   const {
     images,
+    onTagClick,
   } = props;
   return (
     <StackGrid
@@ -19,6 +20,7 @@ const ImageSet = (props) => {
         <ImageCard
           image={image}
           key={v4()}
+          onTagClick={onTagClick}
         />
         ))}
     </StackGrid>
@@ -27,10 +29,12 @@ const ImageSet = (props) => {
 
 ImageSet.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
+  onTagClick: PropTypes.func,
 };
 
 ImageSet.defaultProps = {
   images: [],
+  onTagClick: () => {},
 };
 
 export default ImageSet;

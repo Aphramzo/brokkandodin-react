@@ -1,5 +1,6 @@
 import {
   Image,
+  Tags,
   Video,
 } from './atoms';
 import {
@@ -23,5 +24,6 @@ export {
   ImageInfo,
   ImageSet,
   RecentPhotos,
+  Tags,
   Video,
 };

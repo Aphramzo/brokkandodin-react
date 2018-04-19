@@ -5,6 +5,7 @@ import {
   AgeFriendly,
   TimeAgoFriendly,
 } from '../../../utilities/AgeCalculator';
+import { Tags } from '../../';
 import {
   Age,
   DateTaken,
@@ -15,6 +16,7 @@ const ImageInfo = (props) => {
   const {
     dateTaken,
     description,
+    onTagClick,
     tags,
   } = props;
 
@@ -32,6 +34,10 @@ const ImageInfo = (props) => {
         {timeAgo}
       </Age>
       {description}
+      <Tags
+        onTagClick={onTagClick}
+        tags={tags}
+      />
     </Description>
   );
 };
@@ -39,12 +45,14 @@ const ImageInfo = (props) => {
 ImageInfo.propTypes = {
   dateTaken: PropTypes.string,
   description: PropTypes.string,
+  onTagClick: PropTypes.func,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 ImageInfo.defaultProps = {
   dateTaken: undefined,
   description: '',
+  onTagClick: () => {},
   tags: [],
 };
 
