@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import { ImageSet } from '../../';
 import GetLatest from '../../../api/photos/Flickr';
+import SortImages from '../../../utilities/SortImages';
 import RecentPhotosContainer from './RecentPhotos.styles';
 
 class RecentPhotos extends Component {
@@ -36,7 +37,7 @@ class RecentPhotos extends Component {
     return (
       <BottomScrollListener onBottom={this.loadMore}>
         <RecentPhotosContainer>
-          <ImageSet images={this.state.images} />
+          <ImageSet images={this.state.images.sort(SortImages)} />
         </RecentPhotosContainer>
       </BottomScrollListener>
     );

@@ -1,3 +1,7 @@
 import Image from './images';
+import Video from './videos';
 
-export default Image;
+export {
+  Image,
+  Video,
+};

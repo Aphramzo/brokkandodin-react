@@ -1,28 +1,33 @@
 import moment from 'moment';
 
-const BuildFriendlyString = (number, measurement) => `${number} ${measurement}${number === 1 ? '' : 's'} old`;
+const BuildFriendlyString = (number, measurement, measurementName) => `${number} ${measurement}${number === 1 ? '' : 's'} ${measurementName}`;
 
-const AgeDifferenceFriendly = (photoDate) => {
-  const birthday = moment('11/07/2014');
-
+const FriendlyDifference = (photoDate, toCompare, measurementName) => {
   // is it more overhead to find all these values like this or grab the milliseconds and do our own calc?
-  const days = photoDate.diff(birthday, 'days');
+  const days = photoDate.diff(toCompare, 'days');
   if (days < 21) {
-    return BuildFriendlyString(days, 'day');
+    return BuildFriendlyString(days, 'day', measurementName);
   }
 
-  const weeks = photoDate.diff(birthday, 'weeks');
+  const weeks = photoDate.diff(toCompare, 'weeks');
   if (weeks < 13) {
-    return BuildFriendlyString(weeks, 'week');
+    return BuildFriendlyString(weeks, 'week', measurementName);
   }
 
-  const months = photoDate.diff(birthday, 'months');
+  const months = photoDate.diff(toCompare, 'months');
   if (months < 24) {
-    return BuildFriendlyString(months, 'month');
+    return BuildFriendlyString(months, 'month', measurementName);
   }
 
-  const years = photoDate.diff(birthday, 'years');
-  return BuildFriendlyString(years, 'year');
+  const years = photoDate.diff(toCompare, 'years');
+  return BuildFriendlyString(years, 'year', measurementName);
 };
 
-export default AgeDifferenceFriendly;
+const AgeFriendly = photoDate => FriendlyDifference(photoDate, moment('11/07/2014'), 'old');
+
+const TimeAgoFriendly = photoDate => FriendlyDifference(moment(), photoDate, 'ago');
+
+export {
+  AgeFriendly,
+  TimeAgoFriendly,
+};

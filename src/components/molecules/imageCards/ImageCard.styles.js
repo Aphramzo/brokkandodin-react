@@ -10,6 +10,10 @@ const Card = styled.div`
         border-radius: 6px 6px 0 0;
         margin: -4px;
     }
+
+    video {
+        border-radius: 6px 6px 0 0;
+    }
 `;
 
 export default Card;

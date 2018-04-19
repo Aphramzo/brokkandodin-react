@@ -5,8 +5,11 @@ const FlickerResponseToImages = response => (
     {
       date: photo.datetaken,
       description: photo.description['_content'], //eslint-disable-line
+      urlLarge: photo.url_c,
+      urlOriginal: photo.url_o,
       urlSmall: photo.url_n,
-      urlLarge: photo.url_o,
+      video: photo.media === 'video',
+      videoUrl: `https://www.flickr.com/photos/${process.env.REACT_APP_FLICKR_USER}/${photo.id}/play/site/${photo.secret}/`,
     }
   ))
 );
@@ -15,7 +18,7 @@ const FlickerResponseToImages = response => (
 const flickrEndPoint = 'https://api.flickr.com/services/rest/?method=';
 const flickrMethod = 'flickr.people.getPhotos';
 const flickrApiKey = `&api_key=${process.env.REACT_APP_FLICKR_API}`;
-const flickrParams = `&user_id=${process.env.REACT_APP_FLICKR_USER}&extras=date_taken,url_n,url_o,description,tags&format=json&nojsoncallback=1`;
+const flickrParams = `&user_id=${process.env.REACT_APP_FLICKR_USER}&extras=date_taken,url_n,url_c,url_o,description,tags,media&format=json&nojsoncallback=1`;
 const GetRecent = async (pageNumber, resultsPerPage) => {
   const endpoint = `${flickrEndPoint}${flickrMethod}${flickrApiKey}${flickrParams}&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
   return FlickerResponseToImages(await axios.get(endpoint));
