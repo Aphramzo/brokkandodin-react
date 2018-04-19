@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Image,
@@ -6,25 +6,44 @@ import {
 } from '../../';
 import Card from './ImageCard.styles.js';
 
-const ImageCard = (props) => {
-  const {
-    image,
-  } = props;
+class ImageCard extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Card>
-      <Image
-        description={image.description}
-        url={image.urlSmall}
-      />
-      <ImageInfo
-        dateTaken={image.date}
-        description={image.description}
-        tags={image.tags}
-      />
-    </Card>
-  );
-};
+    this.state = {
+      viewLarge: false,
+    };
+
+    this.onImageClick = this.onImageClick.bind(this);
+  }
+
+  onImageClick() {
+    this.setState({
+      viewLarge: !this.state.viewLarge,
+    });
+  }
+
+  render() {
+    const {
+      image,
+    } = this.props;
+    return (
+      <Card>
+        <Image
+          description={image.description}
+          fullUrl={image.urlLarge}
+          onClick={this.onImageClick}
+          previewUrl={image.urlSmall}
+        />
+        <ImageInfo
+          dateTaken={image.date}
+          description={image.description}
+          tags={image.tags}
+        />
+      </Card>
+    );
+  }
+}
 
 ImageCard.propTypes = {
   image: PropTypes.shape.isRequired,

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import DateDifferenceFriendly from '../../../utilities/AgeCalculator';
 import {
   DateTaken,
   Description,
@@ -13,12 +14,14 @@ const ImageInfo = (props) => {
     tags,
   } = props;
 
-  const dateDisplay = moment(dateTaken, 'YYYY-MM-D').format('dddd, MMMM Do YYYY');
+  const dateObject = moment(dateTaken, 'YYYY-MM-D');
+  const dateDisplay = dateObject.format('dddd, MMMM Do YYYY');
+  const ageDisplay = DateDifferenceFriendly(dateObject);
 
   return (
     <Description>
       <DateTaken>
-        {dateDisplay}
+        {dateDisplay} ({ageDisplay})
       </DateTaken>
       {description}
     </Description>
