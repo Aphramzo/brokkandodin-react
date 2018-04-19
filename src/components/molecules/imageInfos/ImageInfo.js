@@ -26,10 +26,10 @@ const ImageInfo = (props) => {
   return (
     <Description>
       <DateTaken>
-        {dateDisplay} - ({timeAgo})
+        {dateDisplay} - ({ageDisplay})
       </DateTaken>
       <Age>
-        {ageDisplay}
+        {timeAgo}
       </Age>
       {description}
     </Description>

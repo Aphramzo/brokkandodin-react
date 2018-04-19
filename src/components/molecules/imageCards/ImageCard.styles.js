@@ -6,12 +6,7 @@ const Card = styled.div`
     color: #eee;
     margin: 12px 0;    
 
-    img {
-        border-radius: 6px 6px 0 0;
-        margin: -4px;
-    }
-
-    video {
+    img, video {
         border-radius: 6px 6px 0 0;
     }
 `;

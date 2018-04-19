@@ -5,6 +5,8 @@ const FlickerResponseToImages = response => (
     {
       date: photo.datetaken,
       description: photo.description['_content'], //eslint-disable-line
+      smallHeight: photo.height_n,
+      smallWidth: photo.width_n,
       urlLarge: photo.url_c,
       urlOriginal: photo.url_o,
       urlSmall: photo.url_n,

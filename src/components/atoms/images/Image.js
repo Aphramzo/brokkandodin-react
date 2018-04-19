@@ -6,6 +6,8 @@ const Image = (props) => {
   const {
     description,
     fullUrl,
+    previewHeight,
+    previewWidth,
     previewUrl,
   } = props;
   return (
@@ -19,7 +21,8 @@ const Image = (props) => {
         alt: description,
         src: previewUrl,
         style: {
-          width: '100%',
+          height: `${previewHeight}px`,
+          width: `${previewWidth}px`,
         },
       }}
       shouldReplaceImage={false}
@@ -33,12 +36,16 @@ const Image = (props) => {
 Image.propTypes = {
   description: PropTypes.string,
   fullUrl: PropTypes.string,
+  previewHeight: PropTypes.number,
+  previewWidth: PropTypes.number,
   previewUrl: PropTypes.string.isRequired,
 };
 
 Image.defaultProps = {
   description: '',
   fullUrl: '',
+  previewHeight: 200,
+  previewWidth: 300,
 };
 
 export default Image;

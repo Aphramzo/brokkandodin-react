@@ -11,7 +11,6 @@ const DateTaken = styled.div`
 
 const Description = styled.div`
     font-size: 16px;
-    max-width: 290px;
     padding: 10px 10px 5px;
     text-align: left;
 `;

@@ -4,6 +4,8 @@ import VideoWrapper from './Video.styles';
 
 const Video = (props) => {
   const {
+    thumbnailHeight,
+    thumbnailWidth,
     thumbnailUrl,
     videoUrl,
   } = props;
@@ -18,6 +20,10 @@ const Video = (props) => {
       controls
       onClick={onVideoClick}
       poster={thumbnailUrl}
+      style={{
+          height: `${thumbnailHeight}px`,
+          width: `${thumbnailWidth}px`,
+      }}
     >
       <source
         src={videoUrl}
@@ -28,11 +34,15 @@ const Video = (props) => {
 };
 
 Video.propTypes = {
+  thumbnailHeight: PropTypes.number,
+  thumbnailWidth: PropTypes.number,
   thumbnailUrl: PropTypes.string,
   videoUrl: PropTypes.string,
 };
 
 Video.defaultProps = {
+  thumbnailHeight: 200,
+  thumbnailWidth: 300,
   thumbnailUrl: '',
   videoUrl: '',
 };

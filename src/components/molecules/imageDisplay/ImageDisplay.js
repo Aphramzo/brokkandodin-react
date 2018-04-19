@@ -15,6 +15,8 @@ const ImageDisplay = (props) => {
       <Image
         description={image.description}
         fullUrl={image.urlLarge}
+        previewHeight={image.smallHeight}
+        previewWidth={image.smallWidth}
         previewUrl={image.urlSmall}
       />
     );
@@ -22,6 +24,8 @@ const ImageDisplay = (props) => {
 
   return (
     <Video
+      thumbnailHeight={image.smallHeight}
+      thumbnailWidth={image.smallWidth}
       thumbnailUrl={image.urlSmall}
       videoUrl={image.videoUrl}
     />

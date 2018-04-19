@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import StackGrid from 'react-stack-grid';
 import { ImageCard } from '../../';
-import Container from './ImageSet.styles.js';
+
 
 const ImageSet = (props) => {
   const {
     images,
   } = props;
   return (
-    <Container>
+    <StackGrid
+      columnWidth={320}
+      gutterWidth={20}
+    >
       {images.map(image => (
         <ImageCard
           image={image}
           key={v4()}
         />
         ))}
-    </Container>
+    </StackGrid>
   );
 };
 
