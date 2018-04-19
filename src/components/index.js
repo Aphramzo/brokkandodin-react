@@ -8,9 +8,15 @@ import {
   ImageInfo,
   ImageSet,
 } from './molecules';
-import RecentPhotos from './organisms';
+import {
+  Header,
+  RecentPhotos,
+} from './organisms';
+import HomePage from './pages';
 
 export {
+  Header,
+  HomePage,
   Image,
   ImageCard,
   ImageDisplay,

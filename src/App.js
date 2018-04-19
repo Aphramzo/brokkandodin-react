@@ -1,10 +1,16 @@
 import React from 'react';
-import { RecentPhotos } from './components';
+import {
+  HomePage,
+  RecentPhotos,
+} from './components';
 import './App.css';
 
 const App = props => (
   <div className="App">
-    <RecentPhotos />
+    <HomePage>
+      <RecentPhotos />
+    </HomePage>
+
   </div>
 );
 

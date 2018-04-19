@@ -1,3 +1,7 @@
+import Header from './headers';
 import RecentPhotos from './recentPhotos';
 
-export default RecentPhotos;
+export {
+  Header,
+  RecentPhotos,
+};
