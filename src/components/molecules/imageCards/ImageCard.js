@@ -11,7 +11,7 @@ const ImageCard = (props) => {
     image,
   } = props;
   return (
-    <Card>
+    <Card imageWidth={image.smallWidth}>
       <ImageDisplay image={image} />
       <ImageInfo
         dateTaken={image.date}

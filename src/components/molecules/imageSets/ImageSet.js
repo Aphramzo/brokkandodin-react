@@ -12,6 +12,7 @@ const ImageSet = (props) => {
   return (
     <StackGrid
       columnWidth={320}
+      gutterHeight={15}
       gutterWidth={20}
     >
       {images.map(image => (
