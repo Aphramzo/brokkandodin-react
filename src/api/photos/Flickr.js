@@ -31,7 +31,7 @@ const GetRecent = async (pageNumber, resultsPerPage, filter) => {
     return FlickerResponseToImages(await axios.get(endpoint));
   }
 
-  const endpoint = `${flickrEndPoint}${flickSearchMethod}${flickrApiKey}${flickrParams}&tags=${filter}&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
+  const endpoint = `${flickrEndPoint}${flickSearchMethod}${flickrApiKey}${flickrParams}&tags=${filter}&tag_mode=all&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
   return FlickerResponseToImages(await axios.get(endpoint));
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import { ImageSet } from '../../';
 import GetLatest from '../../../api/photos/Flickr';
@@ -12,23 +13,22 @@ class RecentPhotos extends Component {
     this.state = {
       images: [],
       pageNumber: 1,
-      searchCriteria: '',
     };
 
     this.loadMore = this.loadMore.bind(this);
-    this.onTagClick = this.onTagClick.bind(this);
   }
 
   componentDidMount() {
     this.loadMore();
   }
 
-  async onTagClick(tag) {
-    this.setState({
-      images: [],
-      pageNumber: 1,
-      searchCriteria: tag,
-    }, this.loadMore);
+  componentWillReceiveProps(nextProps) {
+    if (this.props.tags !== nextProps) {
+      this.setState({
+        images: [],
+        pageNumber: 1,
+      }, this.loadMore);
+    }
   }
 
   setImages(images) {
@@ -43,7 +43,7 @@ class RecentPhotos extends Component {
   }
 
   async loadMore() {
-    const photos = await GetLatest(this.state.pageNumber, 25, this.state.searchCriteria);
+    const photos = await GetLatest(this.state.pageNumber, 25, this.props.tags.join(','));
     this.setImages(photos);
   }
 
@@ -53,12 +53,21 @@ class RecentPhotos extends Component {
         <RecentPhotosContainer>
           <ImageSet
             images={this.state.images.sort(SortImages)}
-            onTagClick={this.onTagClick}
+            onTagClick={this.props.onTagClick}
           />
         </RecentPhotosContainer>
       </BottomScrollListener>
     );
   }
 }
+
+RecentPhotos.propTypes = {
+  onTagClick: PropTypes.func.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+};
+
+RecentPhotos.defaultProps = {
+  tags: [],
+};
 
 export default RecentPhotos;

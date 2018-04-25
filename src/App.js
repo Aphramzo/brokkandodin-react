@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   HomePage,
-  RecentPhotos,
+  ConnectedRecentPhotos,
 } from './components';
 import './App.css';
 
 const App = props => (
   <div className="App">
     <HomePage>
-      <RecentPhotos />
+      <ConnectedRecentPhotos />
     </HomePage>
 
   </div>

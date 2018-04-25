@@ -4,10 +4,15 @@ import {
   Video,
 } from './atoms';
 import {
+  ConnectedRecentPhotos,
+  ConnectedSearchBar,
+} from './connected';
+import {
   ImageCard,
   ImageDisplay,
   ImageInfo,
   ImageSet,
+  SearchBar,
 } from './molecules';
 import {
   Header,
@@ -16,6 +21,8 @@ import {
 import HomePage from './pages';
 
 export {
+  ConnectedRecentPhotos,
+  ConnectedSearchBar,
   Header,
   HomePage,
   Image,
@@ -24,6 +31,7 @@ export {
   ImageInfo,
   ImageSet,
   RecentPhotos,
+  SearchBar,
   Tags,
   Video,
 };
