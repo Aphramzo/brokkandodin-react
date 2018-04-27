@@ -5,6 +5,7 @@ import {
   SearchBarContainer,
   SearchButton,
   SearchInput,
+  SearchInputContainer,
   SearchTagContainer,
 } from './SearchBar.styles';
 
@@ -41,20 +42,23 @@ class SearchBar extends Component {
 
     return (
       <SearchBarContainer>
-        <SearchInput
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-          placeholder="search"
-          type="text"
-          value={this.state.searchTerm}
-        />
-        <SearchButton>
-          <FontAwesome
-            name="search"
-            onClick={() => onSearch(this.state.searchTerm)}
-            title="Search"
+        <SearchInputContainer>
+          <SearchInput
+            onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
+            placeholder="search"
+            type="text"
+            value={this.state.searchTerm}
           />
-        </SearchButton>
+          <SearchButton>
+            <FontAwesome
+              name="search"
+              onClick={() => onSearch(this.state.searchTerm)}
+              title="Search"
+            />
+          </SearchButton>
+        </SearchInputContainer>
+
         {tags.map(tag => (
           <SearchTagContainer>
             <FontAwesome

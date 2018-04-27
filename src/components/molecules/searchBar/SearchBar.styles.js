@@ -26,9 +26,17 @@ const SearchInput = styled.input`
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
     padding: 6px 12px;
+    width: 250px;
+`;
+
+const SearchInputContainer = styled.div`
+    @media only screen and (min-width: 768px) {
+        display: inline-block;
+    }
 
     @media only screen and (max-width: 768px) {
-        display:none; 
+        margin-bottom: 10px;
+        width: 100%;
     }
 `;
 
@@ -54,5 +62,6 @@ export {
   SearchButton,
   SearchBarContainer,
   SearchInput,
+  SearchInputContainer,
   SearchTagContainer,
 };

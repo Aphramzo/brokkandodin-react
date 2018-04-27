@@ -22,6 +22,7 @@ const Title = styled.h1`
 
     @media only screen and (max-width: 768px) {
         font-size: 1em;
+        margin: 8px 0;
     }
 `;
 
