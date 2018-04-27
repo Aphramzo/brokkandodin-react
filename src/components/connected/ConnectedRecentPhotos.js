@@ -8,6 +8,7 @@ import { RecentPhotos } from '../';
 
 const ConnectedRecentPhotos = (props) => {
   const {
+    searchTerm,
     tags,
   } = props;
 
@@ -21,6 +22,7 @@ const ConnectedRecentPhotos = (props) => {
   return (
     <RecentPhotos
       onTagClick={onTagClick}
+      searchTerm={searchTerm}
       tags={tags}
     />
   );
@@ -28,15 +30,18 @@ const ConnectedRecentPhotos = (props) => {
 
 ConnectedRecentPhotos.propTypes = {
   actions: PropTypes.objectOf(PropTypes.shape).isRequired,
+  searchTerm: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 ConnectedRecentPhotos.defaultProps = {
+  searchTerm: '',
   tags: [],
 };
 
 const mapStateToProps = (state, ownProps) => (
   {
+    searchTerm: state.search.searchTerm,
     tags: state.search.tags,
   }
 );

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import { ImageSet } from '../../';
-import GetLatest from '../../../api/photos/Flickr';
+import { Search } from '../../../api/photos/Flickr';
 import SortImages from '../../../utilities/SortImages';
 import RecentPhotosContainer from './RecentPhotos.styles';
 
@@ -43,7 +43,7 @@ class RecentPhotos extends Component {
   }
 
   async loadMore() {
-    const photos = await GetLatest(this.state.pageNumber, 25, this.props.tags.join(','));
+    const photos = await Search(this.state.pageNumber, 25, this.props.tags.join(','), this.props.searchTerm);
     this.setImages(photos);
   }
 
@@ -63,10 +63,12 @@ class RecentPhotos extends Component {
 
 RecentPhotos.propTypes = {
   onTagClick: PropTypes.func.isRequired,
+  searchTerm: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 RecentPhotos.defaultProps = {
+  searchTerm: '',
   tags: [],
 };
 

@@ -11,9 +11,21 @@ const SearchBarContainer = styled.div`
     }
 `;
 
+const SearchButton = styled.span`
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 3px;
+    border-left: none;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    padding: 3px 6px;
+`;
+
 const SearchInput = styled.input`
-    border-radius: 5px;
-    height: 20px;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    padding: 6px 12px;
 
     @media only screen and (max-width: 768px) {
         display:none; 
@@ -39,6 +51,7 @@ const SearchTagContainer = styled.span`
 `;
 
 export {
+  SearchButton,
   SearchBarContainer,
   SearchInput,
   SearchTagContainer,

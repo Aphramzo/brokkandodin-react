@@ -13,8 +13,11 @@ const ConnectedSearchBar = (props) => {
 
   const removeTag = tag => props.actions.removeSearchTag(tag);
 
+  const updateSearch = searchTerm => props.actions.updateSearchTerm(searchTerm);
+
   return (
     <SearchBar
+      onSearch={updateSearch}
       onTagRemove={removeTag}
       tags={tags}
     />

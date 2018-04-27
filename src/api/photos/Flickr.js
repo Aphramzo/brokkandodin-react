@@ -24,15 +24,17 @@ const flickSearchMethod = 'flickr.photos.search';
 const flickrApiKey = `&api_key=${process.env.REACT_APP_FLICKR_API}`;
 const flickrParams = `&user_id=${process.env.REACT_APP_FLICKR_USER}&extras=date_taken,url_n,url_c,url_o,description,tags,media&format=json&nojsoncallback=1`;
 
-const GetRecent = async (pageNumber, resultsPerPage, filter) => {
-  // Faster to call this than search if nothing is filtered
-  if (!filter) {
-    const endpoint = `${flickrEndPoint}${flickrMethod}${flickrApiKey}${flickrParams}&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
-    return FlickerResponseToImages(await axios.get(endpoint));
-  }
-
-  const endpoint = `${flickrEndPoint}${flickSearchMethod}${flickrApiKey}${flickrParams}&tags=${filter}&tag_mode=all&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
+const GetRecent = async (pageNumber, resultsPerPage) => {
+  const endpoint = `${flickrEndPoint}${flickrMethod}${flickrApiKey}${flickrParams}&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
   return FlickerResponseToImages(await axios.get(endpoint));
 };
 
-export default GetRecent;
+const Search = async (pageNumber, resultsPerPage, tags, searchString) => {
+  const endpoint = `${flickrEndPoint}${flickSearchMethod}${flickrApiKey}${flickrParams}&tags=${tags}&tag_mode=all&text=${searchString}&per_page=${resultsPerPage || 25}&page=${pageNumber || 0}`;
+  return FlickerResponseToImages(await axios.get(endpoint));
+};
+
+export {
+  GetRecent,
+  Search,
+};
