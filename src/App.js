@@ -6,19 +6,23 @@ import {
 import {
   HomePage,
   ConnectedRecentPhotos,
+  Menu,
 } from './components';
 import './App.css';
 
 const App = props => (
   <div className="App">
     <BrowserRouter>
-      <HomePage>
-        <Route
-          component={ConnectedRecentPhotos}
-          exact
-          path="/"
-        />
-      </HomePage>
+      <div>
+        <Menu />
+        <HomePage>
+          <Route
+            component={ConnectedRecentPhotos}
+            exact
+            path="/"
+          />
+        </HomePage>
+      </div>
     </BrowserRouter>
   </div>
 );

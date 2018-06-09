@@ -11,6 +11,11 @@ const HeaderBar = styled.div`
     width: 100%;
     z-index: 20;
 
+    a {
+        color: #ddd;
+        text-decoration: none;
+    }
+
     @media only screen and (min-width: 768px) {
         display: flex;
     }
@@ -18,10 +23,8 @@ const HeaderBar = styled.div`
 
 const Title = styled.h1`
     a {
-        color: #ddd;
         font-family: 'Cabin Sketch';
         margin: 20px 0;
-        text-decoration: none;
     }
     
     @media only screen and (max-width: 768px) {

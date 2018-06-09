@@ -9,6 +9,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-bottom-scroll-listener": "^1.2.0",
+    "react-burger-menu": "^2.5.0",
     "react-dom": "^16.3.1",
     "react-fontawesome": "^1.6.1",
     "react-medium-image-zoom": "^3.0.10",

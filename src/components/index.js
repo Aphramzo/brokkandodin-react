@@ -12,6 +12,7 @@ import {
   ImageDisplay,
   ImageInfo,
   ImageSet,
+  Menu,
   SearchBar,
 } from './molecules';
 import {
@@ -30,6 +31,7 @@ export {
   ImageDisplay,
   ImageInfo,
   ImageSet,
+  Menu,
   RecentPhotos,
   SearchBar,
   Tags,
