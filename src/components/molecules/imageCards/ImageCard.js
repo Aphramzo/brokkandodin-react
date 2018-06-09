@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImageShape from '../../../models/image';
 import {
   ImageDisplay,
   ImageInfo,
@@ -25,11 +26,12 @@ const ImageCard = (props) => {
 };
 
 ImageCard.propTypes = {
-  image: PropTypes.shape.isRequired,
+  image: ImageShape,
   onTagClick: PropTypes.func,
 };
 
 ImageCard.defaultProps = {
+  image: undefined,
   onTagClick: () => {},
 };
 

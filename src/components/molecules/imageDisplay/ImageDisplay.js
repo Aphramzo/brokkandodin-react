@@ -33,7 +33,7 @@ const ImageDisplay = (props) => {
 };
 
 ImageDisplay.propTypes = {
-  image: PropTypes.shape.isRequired,
+  image: PropTypes.shape().isRequired,
 };
 
 export default ImageDisplay;

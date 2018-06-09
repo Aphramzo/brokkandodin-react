@@ -27,7 +27,10 @@ class RecentPhotos extends Component {
       this.setState({
         images: [],
         pageNumber: 1,
-      }, this.loadMore);
+      }, () => {
+        window.scrollTo(0, 0);
+        this.loadMore();
+      });
     }
   }
 

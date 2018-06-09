@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import StackGrid from 'react-stack-grid';
+import ImageShape from '../../../models/image';
 import { ImageCard } from '../../';
 
 
@@ -10,6 +11,7 @@ const ImageSet = (props) => {
     images,
     onTagClick,
   } = props;
+
   return (
     <StackGrid
       columnWidth={320}
@@ -28,7 +30,7 @@ const ImageSet = (props) => {
 };
 
 ImageSet.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
+  images: PropTypes.arrayOf(ImageShape),
   onTagClick: PropTypes.func,
 };
 

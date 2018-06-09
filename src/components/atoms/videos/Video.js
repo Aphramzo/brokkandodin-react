@@ -34,8 +34,14 @@ const Video = (props) => {
 };
 
 Video.propTypes = {
-  thumbnailHeight: PropTypes.number,
-  thumbnailWidth: PropTypes.number,
+  thumbnailHeight: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  thumbnailWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   thumbnailUrl: PropTypes.string,
   videoUrl: PropTypes.string,
 };

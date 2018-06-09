@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import {
   Tag,
   TagContainer,
@@ -14,7 +15,10 @@ const Tags = (props) => {
   return (
     <TagContainer>
       {tags.map(tag => (
-        <Tag onClick={() => onTagClick(tag)}>
+        <Tag
+          key={v4()}
+          onClick={() => onTagClick(tag)}
+        >
           {`#${tag}`}
         </Tag>
     ))}

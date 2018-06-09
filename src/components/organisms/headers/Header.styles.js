@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const HeaderBar = styled.div`
     background-color: #444;
+    height: 110px;
     left: 0;
     padding-left: 30px;
     position: fixed;

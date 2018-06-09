@@ -36,8 +36,14 @@ const Image = (props) => {
 Image.propTypes = {
   description: PropTypes.string,
   fullUrl: PropTypes.string,
-  previewHeight: PropTypes.number,
-  previewWidth: PropTypes.number,
+  previewHeight: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  previewWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   previewUrl: PropTypes.string.isRequired,
 };
 
