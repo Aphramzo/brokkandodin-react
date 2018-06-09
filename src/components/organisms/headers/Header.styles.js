@@ -17,10 +17,13 @@ const HeaderBar = styled.div`
 `;
 
 const Title = styled.h1`
-    color: #ddd;
-    font-family: 'Cabin Sketch';
-    margin: 20px 0;
-
+    a {
+        color: #ddd;
+        font-family: 'Cabin Sketch';
+        margin: 20px 0;
+        text-decoration: none;
+    }
+    
     @media only screen and (max-width: 768px) {
         font-size: 1em;
         margin: 8px 0;

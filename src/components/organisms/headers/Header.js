@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { ConnectedSearchBar } from '../../index';
 import {
   HeaderBar,
@@ -9,7 +10,9 @@ import {
 const Header = props => (
   <HeaderBar>
     <Title>
-        Brokk and Odin
+      <Link to="/">
+          Brokk and Odin
+      </Link>
     </Title>
     {props.showSearch && <ConnectedSearchBar />}
   </HeaderBar>
