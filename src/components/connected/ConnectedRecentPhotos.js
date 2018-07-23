@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as SearchActions from '../../actions/SearchActions';
-import { RecentPhotos } from '../';
+import {
+  HomePage,
+  RecentPhotos,
+} from '../';
 
 
 const ConnectedRecentPhotos = (props) => {
@@ -20,11 +23,13 @@ const ConnectedRecentPhotos = (props) => {
   };
 
   return (
-    <RecentPhotos
-      onTagClick={onTagClick}
-      searchTerm={searchTerm}
-      tags={tags}
-    />
+    <HomePage>
+      <RecentPhotos
+        onTagClick={onTagClick}
+        searchTerm={searchTerm}
+        tags={tags}
+      />
+    </HomePage>
   );
 };
 

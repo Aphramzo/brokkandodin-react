@@ -4,6 +4,7 @@ import {
   Video,
 } from './atoms';
 import {
+  ConnectedMemberWhen,
   ConnectedRecentPhotos,
   ConnectedSearchBar,
 } from './connected';
@@ -17,11 +18,13 @@ import {
 } from './molecules';
 import {
   Header,
+  MemberWhen,
   RecentPhotos,
 } from './organisms';
 import HomePage from './pages';
 
 export {
+  ConnectedMemberWhen,
   ConnectedRecentPhotos,
   ConnectedSearchBar,
   Header,
@@ -31,6 +34,7 @@ export {
   ImageDisplay,
   ImageInfo,
   ImageSet,
+  MemberWhen,
   Menu,
   RecentPhotos,
   SearchBar,

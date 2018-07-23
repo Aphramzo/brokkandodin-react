@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 import {
-  HomePage,
+  ConnectedMemberWhen,
   ConnectedRecentPhotos,
   Menu,
 } from './components';
@@ -15,13 +15,16 @@ const App = props => (
     <BrowserRouter>
       <div>
         <Menu />
-        <HomePage>
-          <Route
-            component={ConnectedRecentPhotos}
-            exact
-            path="/"
-          />
-        </HomePage>
+        <Route
+          component={ConnectedRecentPhotos}
+          exact
+          path="/"
+        />
+        <Route
+          component={ConnectedMemberWhen}
+          exact
+          path="/member-when"
+        />
       </div>
     </BrowserRouter>
   </div>
