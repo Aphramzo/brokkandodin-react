@@ -4,8 +4,8 @@ import {
   Route,
 } from 'react-router-dom';
 import {
-  ConnectedMemberWhen,
   ConnectedRecentPhotos,
+  MemberWhen,
   Menu,
 } from './components';
 import './App.css';
@@ -21,7 +21,7 @@ const App = props => (
           path="/"
         />
         <Route
-          component={ConnectedMemberWhen}
+          component={MemberWhen}
           exact
           path="/member-when"
         />

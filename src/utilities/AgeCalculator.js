@@ -27,7 +27,29 @@ const AgeFriendly = photoDate => FriendlyDifference(photoDate, moment('11/07/201
 
 const TimeAgoFriendly = photoDate => FriendlyDifference(moment(), photoDate, 'ago');
 
+const MemberWhenTitle = (monthsAgo) => {
+  const photoDate = moment().add(monthsAgo, 'M');
+  const months = photoDate.diff(moment(), 'months');
+  const years = photoDate.diff(moment(), 'years');
+  if (months === -1) {
+    return 'A month ago this happened';
+  }
+
+  if (years === 0) {
+    return 'Six months ago this happened';
+  }
+
+  const yearsString = `${years * -1} year${years < -1 ? 's' : ''}`;
+  let monthsString = '';
+
+  if (months%12 !== 0) {
+    monthsString = ' and 6 months';
+  }
+  return `That ${yearsString}${monthsString} ago this happened`;
+};
+
 export {
   AgeFriendly,
+  MemberWhenTitle,
   TimeAgoFriendly,
 };

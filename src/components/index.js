@@ -4,7 +4,6 @@ import {
   Video,
 } from './atoms';
 import {
-  ConnectedMemberWhen,
   ConnectedRecentPhotos,
   ConnectedSearchBar,
 } from './connected';
@@ -24,7 +23,6 @@ import {
 import HomePage from './pages';
 
 export {
-  ConnectedMemberWhen,
   ConnectedRecentPhotos,
   ConnectedSearchBar,
   Header,

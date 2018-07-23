@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 export default PropTypes.shape({
   date: PropTypes.string,
   description: PropTypes.string,
+  largeWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   smallHeight: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

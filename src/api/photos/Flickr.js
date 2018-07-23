@@ -5,6 +5,7 @@ const FlickerResponseToImages = response => (
     {
       date: photo.datetaken,
       description: photo.description['_content'], //eslint-disable-line
+      largeWidth: photo.width_c,
       smallHeight: photo.height_n,
       smallWidth: photo.width_n,
       tags: photo.tags.split(' '),
@@ -36,7 +37,28 @@ const Search = async (pageNumber, resultsPerPage, tags, searchString) => {
   return FlickerResponseToImages(await axios.get(endpoint));
 };
 
+const MonthsAgo = async (monthsAgo) => {
+  const searchDateCalculator = () => {
+    const currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() + monthsAgo, currentDate.getDate());
+    return currentDate;
+  };
+  const endDate = (startDate) => {
+    const returnDate = startDate;
+    returnDate.setDate(returnDate.getDate() + 1);
+    return returnDate;
+  };
+  const formatDateToFlickr = formatDate => formatDate.toISOString().substring(0, 10);
+
+  const dateToSearch = searchDateCalculator();
+  const endpoint = `${flickrEndPoint}${flickSearchMethod}${flickrApiKey}${flickrParams}&` +
+    `min_taken_date=${formatDateToFlickr(dateToSearch)}&max_taken_date=${formatDateToFlickr(endDate(dateToSearch))}`;
+
+  return FlickerResponseToImages(await axios.get(endpoint));
+};
+
 export {
   GetRecent,
+  MonthsAgo,
   Search,
 };
