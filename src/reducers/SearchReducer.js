@@ -3,9 +3,16 @@ import * as ActionTypes from '../actions/SearchActionTypes';
 export default (state = { tags: [] }, action) => {
   switch (action.type) {
     case ActionTypes.ADD_SEARCH_TAG:
+      if (state.tags) {
+        return {
+          ...state,
+          tags: [...state.tags, action.tag],
+        };
+      }
+
       return {
         ...state,
-        tags: [...state.tags, action.tag],
+        tags: [action.tag],
       };
 
     case ActionTypes.REMOVE_SEARCH_TAG:
