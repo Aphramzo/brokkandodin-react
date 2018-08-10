@@ -21,6 +21,14 @@ class SearchBar extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+  componentDidMount() {
+    // If there is an initial store value - set our state to it to reflect
+    // After that it should all be handled from this state anyway
+    this.setState({
+      searchTerm: this.props.searchTerm,
+    });
+  }
+
   handleChange(e) {
     this.setState({
       searchTerm: e.target.value,
@@ -76,12 +84,14 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   onSearch: PropTypes.func,
   onTagRemove: PropTypes.func,
+  searchTerm: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 SearchBar.defaultProps = {
   onSearch: () => {},
   onTagRemove: () => {},
+  searchTerm: '',
   tags: [],
 };
 
