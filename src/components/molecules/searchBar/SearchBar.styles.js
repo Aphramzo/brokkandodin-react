@@ -30,9 +30,7 @@ const SearchInput = styled.input`
 `;
 
 const SearchInputContainer = styled.div`
-    @media only screen and (min-width: 768px) {
-        display: inline-block;
-    }
+    display: flex;
 
     @media only screen and (max-width: 768px) {
         margin-bottom: 10px;

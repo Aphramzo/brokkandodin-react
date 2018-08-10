@@ -5,11 +5,11 @@ const FlickerResponseToImages = response => (
     {
       date: photo.datetaken,
       description: photo.description['_content'], //eslint-disable-line
-      largeWidth: photo.width_c,
+      largeWidth: photo.width_l,
       smallHeight: photo.height_n,
       smallWidth: photo.width_n,
       tags: photo.tags.split(' '),
-      urlLarge: photo.url_c,
+      urlLarge: photo.url_l,
       urlOriginal: photo.url_o,
       urlSmall: photo.url_n,
       video: photo.media === 'video',
@@ -23,7 +23,7 @@ const flickrEndPoint = 'https://api.flickr.com/services/rest/?method=';
 const flickrMethod = 'flickr.people.getPhotos';
 const flickSearchMethod = 'flickr.photos.search';
 const flickrApiKey = `&api_key=${process.env.REACT_APP_FLICKR_API}`;
-const flickrParams = `&user_id=${process.env.REACT_APP_FLICKR_USER}&extras=date_taken,url_n,url_c,url_o,description,tags,media` +
+const flickrParams = `&user_id=${process.env.REACT_APP_FLICKR_USER}&extras=date_taken,url_n,url_o,url_l,description,tags,media` +
   '&format=json&nojsoncallback=1&sort=date-taken-desc';
 
 const GetRecent = async (pageNumber, resultsPerPage) => {
