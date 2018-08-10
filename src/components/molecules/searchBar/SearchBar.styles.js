@@ -31,9 +31,9 @@ const SearchInput = styled.input`
 
 const SearchInputContainer = styled.div`
     display: flex;
+    margin-bottom: 10px;
 
     @media only screen and (max-width: 768px) {
-        margin-bottom: 10px;
         width: 100%;
     }
 `;
@@ -43,6 +43,7 @@ const SearchTagContainer = styled.span`
     border: 1px solid #bbb;
     border-radius: 3px;
     color: #eee;
+    display: inline-flex;
     padding: 3px;
     margin: 0 5px;
 
