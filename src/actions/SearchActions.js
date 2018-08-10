@@ -23,7 +23,12 @@ export const addSearchTag = tag => (
     // Like this when it's mirrored in the reducer
     // Is there a way to handle post reducer actions??
     const currentSearch = getCurrentStateCopied(getState());
-    currentSearch.tags.push(tag);
+    if (currentSearch.tags) {
+      currentSearch.tags = [...currentSearch.tags, tag];
+    } else {
+      currentSearch.tags = [tag];
+    }
+
     updateUrl(currentSearch);
 
     dispatch({ type: ActionTypes.ADD_SEARCH_TAG, tag });
@@ -33,7 +38,7 @@ export const addSearchTag = tag => (
 export const removeSearchTag = tag => (
   async (dispatch, getState) => {
     const currentSearch = getCurrentStateCopied(getState());
-    currentSearch.tags.pop(tag);
+    currentSearch.tags = currentSearch.tags.filter(currentTag => currentTag !== tag);
     updateUrl(currentSearch);
     dispatch({ type: ActionTypes.REMOVE_SEARCH_TAG, tag });
   }
