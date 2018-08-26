@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import {
   BrowserRouter,
   Route,
@@ -12,6 +13,11 @@ import './App.css';
 
 const App = props => (
   <div className="App">
+    <Helmet>
+      <title>
+        {process.env.REACT_APP_TITLE}
+      </title>
+    </Helmet>
     <BrowserRouter>
       <div>
         <Menu />

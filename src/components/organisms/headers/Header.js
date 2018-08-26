@@ -11,7 +11,7 @@ const Header = props => (
   <HeaderBar>
     <Title>
       <Link to="/">
-          Brokk and Odin
+        {process.env.REACT_APP_TITLE}
       </Link>
     </Title>
     {props.showSearch && <ConnectedSearchBar />}

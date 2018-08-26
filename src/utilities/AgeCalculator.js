@@ -23,7 +23,7 @@ const FriendlyDifference = (photoDate, toCompare, measurementName) => {
   return BuildFriendlyString(years, 'year', measurementName);
 };
 
-const AgeFriendly = photoDate => FriendlyDifference(photoDate, moment('11/07/2014'), 'old');
+const AgeFriendly = photoDate => FriendlyDifference(photoDate, moment(process.env.REACT_APP_BIRTHDATE), 'old');
 
 const TimeAgoFriendly = photoDate => FriendlyDifference(moment(), photoDate, 'ago');
 
