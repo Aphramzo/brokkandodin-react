@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { v4 } from 'uuid';
+import moment from 'moment';
 import { HomePage } from '../../index';
 import { MemberWhenTitle } from '../../../utilities/AgeCalculator';
 import { MonthsAgo } from '../../../api/photos/Flickr';
@@ -18,14 +19,12 @@ class MemberWhen extends Component {
 
   componentDidMount() {
     this.loadMonth(-1);
-    // TODO: obviously make this dynamic
-    this.loadMonth(-6);
-    this.loadMonth(-12);
-    this.loadMonth(-18);
-    this.loadMonth(-24);
-    this.loadMonth(-30);
-    this.loadMonth(-36);
-    this.loadMonth(-42);
+    const monthsOld = moment(process.env.REACT_APP_BIRTHDATE).diff(moment(), 'months', false);
+    let month = -6;
+    while (month >= monthsOld) {
+      this.loadMonth(month);
+      month -=6;
+    }
   }
 
   async loadMonth(month) {
