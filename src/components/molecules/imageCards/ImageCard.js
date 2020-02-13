@@ -12,6 +12,7 @@ const ImageCard = (props) => {
     image,
     onTagClick,
   } = props;
+
   return (
     <Card imageWidth={image.smallWidth}>
       <ImageDisplay image={image} />
@@ -19,6 +20,7 @@ const ImageCard = (props) => {
         dateTaken={image.date}
         description={image.description}
         onTagClick={onTagClick}
+        originalLink={!image.video && image.urlOriginal}
         tags={image.tags}
       />
     </Card>

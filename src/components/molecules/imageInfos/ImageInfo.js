@@ -6,10 +6,13 @@ import {
   TimeAgoFriendly,
 } from '../../../utilities/AgeCalculator';
 import { Tags } from '../../';
+import Download from '../../../images/download';
 import {
   Age,
   DateTaken,
   Description,
+  DownloadLink,
+  SubLine,
 } from './ImageInfo.styles';
 
 const ImageInfo = (props) => {
@@ -17,6 +20,7 @@ const ImageInfo = (props) => {
     dateTaken,
     description,
     onTagClick,
+    originalLink,
     tags,
   } = props;
 
@@ -30,9 +34,18 @@ const ImageInfo = (props) => {
       <DateTaken>
         {dateDisplay} - ({ageDisplay})
       </DateTaken>
-      <Age>
-        {timeAgo}
-      </Age>
+      <SubLine>
+        <Age>
+          {timeAgo}
+        </Age>
+
+        {originalLink &&
+        <DownloadLink href={originalLink} target="_blank" title="Download Original">
+          <Download />
+        </DownloadLink>
+      }
+      </SubLine>
+
       {description}
       <Tags
         onTagClick={onTagClick}
@@ -46,6 +59,7 @@ ImageInfo.propTypes = {
   dateTaken: PropTypes.string,
   description: PropTypes.string,
   onTagClick: PropTypes.func,
+  originalLink: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
 
@@ -53,6 +67,7 @@ ImageInfo.defaultProps = {
   dateTaken: undefined,
   description: '',
   onTagClick: () => {},
+  originalLink: null,
   tags: [],
 };
 
